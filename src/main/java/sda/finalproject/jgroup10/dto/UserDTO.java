@@ -1,29 +1,35 @@
-package sda.finalproject.jgroup10.model;
+package sda.finalproject.jgroup10.dto;
 
-import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Entity
-@Table(name = "USER")
-public class User {
-
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class UserDTO {
+    @JsonProperty("id")
     private Long id;
-    @Column(name = "name")
+    @JsonProperty("name")
     private String name;
-    @Column(name = "personal_code")
+    @JsonProperty("personal_code")
     private String personalCode;
-    @Column(name = "address")
+    @JsonProperty("address")
     private String address;
-    @Column(name = "phone")
+    @JsonProperty("phone")
     private String phone;
-    @Column(name = "email")
+    @JsonProperty("email")
     private String email;
-    @Column(name = "notes")
+    @JsonProperty("notes")
     private String notes;
 
-    public User(Object o, String name, String personalCode, String address, String phone, String email, String notes) {
+    // Needed because the library Jackson requires a default constructor.
+    public UserDTO() {
+    }
+
+    public UserDTO(Long id, String name, String personalCode, String address, String phone, String email, String notes) {
+        this.id = id;
+        this.name = name;
+        this.personalCode = personalCode;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
+        this.notes = notes;
     }
 
     public Long getId() {
