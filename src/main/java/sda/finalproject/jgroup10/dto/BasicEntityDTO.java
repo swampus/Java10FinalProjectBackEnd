@@ -1,5 +1,6 @@
 package sda.finalproject.jgroup10.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
@@ -8,6 +9,7 @@ public class BasicEntityDTO {
 
     private String status;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
     @JsonProperty("create_date")
     private Date createDate;
 

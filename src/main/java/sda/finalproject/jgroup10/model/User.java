@@ -1,7 +1,5 @@
 package sda.finalproject.jgroup10.model;
 
-import sda.finalproject.jgroup10.model.status.EntityStatus;
-
 import javax.persistence.*;
 
 @Entity
@@ -28,23 +26,14 @@ public class User extends BasicEntity {
     public User() {
     }
 
-    public  User (String name, String personalCode, String address,
-                  String phone, String email, String notes) {
+    public User(String name, String personalCode, String address,
+                String phone, String email, String notes) {
         this.name = name;
         this.personalCode = personalCode;
         this.address = address;
         this.phone = phone;
         this.email = email;
         this.notes = notes;
-
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -93,5 +82,14 @@ public class User extends BasicEntity {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

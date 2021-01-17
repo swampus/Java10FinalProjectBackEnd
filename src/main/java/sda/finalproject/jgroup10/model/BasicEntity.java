@@ -1,18 +1,19 @@
 package sda.finalproject.jgroup10.model;
 
+import org.hibernate.annotations.CreationTimestamp;
 import sda.finalproject.jgroup10.model.status.EntityStatus;
 
-import javax.persistence.Column;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 import java.util.Date;
 
+@MappedSuperclass
 public class BasicEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
     private EntityStatus status;
 
+    @CreationTimestamp
     @Column(name = "create_date")
     private Date createDate;
 
@@ -24,13 +25,11 @@ public class BasicEntity {
         this.status = status;
     }
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
     public Date getCreateDate() {
         return createDate;
     }
 
-
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
 }

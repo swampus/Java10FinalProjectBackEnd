@@ -30,6 +30,7 @@ public class UserService {
 
     public User save(User user) {
         user.setStatus(EntityStatus.ACTIVE);
+        user.setCreateDate(null);
         return userRepository.save(user);
     }
 

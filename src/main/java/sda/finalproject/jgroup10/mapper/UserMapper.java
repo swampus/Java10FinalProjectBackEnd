@@ -17,8 +17,8 @@ public class UserMapper {
                 user.getEmail(),
                 user.getNotes(),
                 user.getStatus().name(),
-                user.getCreateDate()
-        );
+                user.getCreateDate());
+
     }
 
     public User fromDTO(UserDTO userDTO) {
