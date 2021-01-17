@@ -3,14 +3,11 @@ package sda.finalproject.jgroup10.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Component;
-import sda.finalproject.jgroup10.dto.UserDTO;
-import sda.finalproject.jgroup10.mapper.UserMapper;
 import sda.finalproject.jgroup10.model.User;
 import sda.finalproject.jgroup10.model.status.EntityStatus;
 import sda.finalproject.jgroup10.repository.UserRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Component
 public class UserService {

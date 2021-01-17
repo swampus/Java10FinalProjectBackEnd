@@ -7,6 +7,7 @@ import sda.finalproject.jgroup10.mapper.UserMapper;
 import sda.finalproject.jgroup10.model.User;
 import sda.finalproject.jgroup10.service.UserService;
 
+import javax.validation.Valid;
 import javax.websocket.server.PathParam;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -30,7 +31,7 @@ public class UserController {
     }
 
     @PostMapping("/user")
-    public UserDTO saveUser(@RequestBody UserDTO userDTO) {
+    public UserDTO saveUser(@Valid @RequestBody UserDTO userDTO) {
         User userToSave = userMapper.fromDTO(userDTO);
         User savedUser = userService.save(userToSave);
         return userMapper.toDTO(savedUser);

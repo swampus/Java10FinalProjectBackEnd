@@ -1,20 +1,28 @@
 package sda.finalproject.jgroup10.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.validator.constraints.Length;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 
 public class UserDTO extends BasicEntityDTO {
     @JsonProperty("id")
     private Long id;
+
+    @NotEmpty
     @JsonProperty("name")
     private String name;
+    @Length(min = 11, max = 11, message = "LV personal codes are 11 length")
     @JsonProperty("code")
     private String code;
     @JsonProperty("address")
     private String address;
     @JsonProperty("phone")
     private String phone;
+    @Email(message = "Email not correct")
     @JsonProperty("email")
     private String email;
     @JsonProperty("notes")
