@@ -1,10 +1,12 @@
 package sda.finalproject.jgroup10.model;
 
+import sda.finalproject.jgroup10.model.status.EntityStatus;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "USER")
-public class User {
+public class User extends BasicEntity {
 
     @Id
     @Column(name = "id")
@@ -23,7 +25,18 @@ public class User {
     @Column(name = "notes")
     private String notes;
 
-    public User(Object o, String name, String personalCode, String address, String phone, String email, String notes) {
+    public User() {
+    }
+
+    public  User (String name, String personalCode, String address,
+                  String phone, String email, String notes) {
+        this.name = name;
+        this.personalCode = personalCode;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
+        this.notes = notes;
+
     }
 
     public Long getId() {

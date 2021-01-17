@@ -2,7 +2,9 @@ package sda.finalproject.jgroup10.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class UserDTO {
+import java.util.Date;
+
+public class UserDTO extends BasicEntityDTO {
     @JsonProperty("id")
     private Long id;
     @JsonProperty("name")
@@ -22,7 +24,8 @@ public class UserDTO {
     public UserDTO() {
     }
 
-    public UserDTO(Long id, String name, String personalCode, String address, String phone, String email, String notes) {
+    public UserDTO(Long id, String name, String personalCode, String address, String phone, String email,
+                   String notes, String status, Date createDate) {
         this.id = id;
         this.name = name;
         this.personalCode = personalCode;
@@ -30,6 +33,8 @@ public class UserDTO {
         this.phone = phone;
         this.email = email;
         this.notes = notes;
+        this.setStatus(status);
+        this.setCreateDate(createDate);
     }
 
     public Long getId() {

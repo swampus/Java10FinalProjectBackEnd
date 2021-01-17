@@ -15,13 +15,14 @@ public class UserMapper {
                 user.getAddress(),
                 user.getPhone(),
                 user.getEmail(),
-                user.getNotes()
+                user.getNotes(),
+                user.getStatus().name(),
+                user.getCreateDate()
         );
     }
 
     public User fromDTO(UserDTO userDTO) {
         return new User(
-                null,
                 userDTO.getName(),
                 userDTO.getPersonalCode(),
                 userDTO.getAddress(),
