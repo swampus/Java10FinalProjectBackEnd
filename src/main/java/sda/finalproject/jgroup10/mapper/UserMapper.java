@@ -24,7 +24,7 @@ public class UserMapper {
     public User fromDTO(UserDTO userDTO) {
         return new User(
                 userDTO.getName(),
-                userDTO.getPersonalCode(),
+                userDTO.getCode(),
                 userDTO.getAddress(),
                 userDTO.getPhone(),
                 userDTO.getEmail(),

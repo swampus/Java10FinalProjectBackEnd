@@ -1,6 +1,7 @@
 package sda.finalproject.jgroup10.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Component;
 import sda.finalproject.jgroup10.dto.UserDTO;
 import sda.finalproject.jgroup10.mapper.UserMapper;
@@ -45,6 +46,10 @@ public class UserService {
 
         user.setId(id);
         userRepository.save(user);
+    }
 
+    public List<User> search(User userSearch){
+        Example<User> userExample = Example.of(userSearch);
+        return userRepository.findAll(userExample);
     }
 }

@@ -7,6 +7,7 @@ import sda.finalproject.jgroup10.mapper.UserMapper;
 import sda.finalproject.jgroup10.model.User;
 import sda.finalproject.jgroup10.service.UserService;
 
+import javax.websocket.server.PathParam;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -48,5 +49,12 @@ public class UserController {
         userService.update(userMapper.fromDTO(userToUpdateDTO), id);
     }
 
+    @GetMapping("/users/search")
+    public List<UserDTO> searchUser(UserDTO userToUpdateDTO) {
+        return userService.search(userMapper.fromDTO(userToUpdateDTO))
+                .stream()
+                .map(userMapper::toDTO)
+                .collect(Collectors.toList());
+    }
 
 }

@@ -9,8 +9,8 @@ public class UserDTO extends BasicEntityDTO {
     private Long id;
     @JsonProperty("name")
     private String name;
-    @JsonProperty("personal_code")
-    private String personalCode;
+    @JsonProperty("code")
+    private String code;
     @JsonProperty("address")
     private String address;
     @JsonProperty("phone")
@@ -24,11 +24,11 @@ public class UserDTO extends BasicEntityDTO {
     public UserDTO() {
     }
 
-    public UserDTO(Long id, String name, String personalCode, String address, String phone, String email,
+    public UserDTO(Long id, String name, String code, String address, String phone, String email,
                    String notes, String status, Date createDate) {
         this.id = id;
         this.name = name;
-        this.personalCode = personalCode;
+        this.code = code;
         this.address = address;
         this.phone = phone;
         this.email = email;
@@ -53,12 +53,12 @@ public class UserDTO extends BasicEntityDTO {
         this.name = name;
     }
 
-    public String getPersonalCode() {
-        return personalCode;
+    public String getCode() {
+        return code;
     }
 
-    public void setPersonalCode(String personalCode) {
-        this.personalCode = personalCode;
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getAddress() {
