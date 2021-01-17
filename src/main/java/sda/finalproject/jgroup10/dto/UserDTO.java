@@ -15,7 +15,7 @@ public class UserDTO extends BasicEntityDTO {
     @NotEmpty
     @JsonProperty("name")
     private String name;
-    @Length(min = 11, max = 11, message = "LV personal codes are 11 length")
+    @Length(min = 11, max = 11, message = "LV personal codes should 11 length")
     @JsonProperty("code")
     private String code;
     @JsonProperty("address")

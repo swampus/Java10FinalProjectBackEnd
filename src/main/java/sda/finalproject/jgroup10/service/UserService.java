@@ -3,6 +3,7 @@ package sda.finalproject.jgroup10.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Component;
+import sda.finalproject.jgroup10.exception.FinalProjectServiceException;
 import sda.finalproject.jgroup10.model.User;
 import sda.finalproject.jgroup10.model.status.EntityStatus;
 import sda.finalproject.jgroup10.repository.UserRepository;
@@ -21,9 +22,10 @@ public class UserService {
     public User getUserById(Long id) {
 
         if (id == 13) {
-            throw new RuntimeException("13 is not allowed");
+            throw new FinalProjectServiceException("13 is not allowed", "CODE_2");
         }
-        return userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
+        return userRepository.findById(id).orElseThrow(
+                () -> new FinalProjectServiceException("13 is not allowed", "CODE_1"));
     }
 
     public User save(User user) {
@@ -32,20 +34,20 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public List<User> findAll(){
+    public List<User> findAll() {
         return userRepository.findAll();
     }
 
-    public void update(User user, Long id){
+    public void update(User user, Long id) {
 
         userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not Exists: " + id));
+                .orElseThrow(() -> new FinalProjectServiceException("User not exists: " + id, "CODE_3"));
 
         user.setId(id);
         userRepository.save(user);
     }
 
-    public List<User> search(User userSearch){
+    public List<User> search(User userSearch) {
         Example<User> userExample = Example.of(userSearch);
         return userRepository.findAll(userExample);
     }
