@@ -100,4 +100,5 @@ public class UserDTO extends BasicEntityDTO {
     public void setNotes(String notes) {
         this.notes = notes;
     }
+
 }
