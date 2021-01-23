@@ -7,6 +7,7 @@ import sda.finalproject.jgroup10.mapper.UserMapper;
 import sda.finalproject.jgroup10.model.User;
 import sda.finalproject.jgroup10.service.UserService;
 
+import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -44,6 +45,7 @@ public class UserController {
     }
 
     @PutMapping("/user({id})")
+    @RolesAllowed("ADMIN")
     public void updateUser(@PathVariable("id") Long id,
                            @RequestBody UserDTO userToUpdateDTO) {
         userService.update(userMapper.fromDTO(userToUpdateDTO), id);
