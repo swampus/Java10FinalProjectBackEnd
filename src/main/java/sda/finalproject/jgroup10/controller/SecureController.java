@@ -10,12 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/rest/api/secure")
 public class SecureController {
 
-    private IPAddressInterceptor ipAddressInterceptor;
-
-    @Autowired
-    public SecureController(IPAddressInterceptor ipAddressInterceptor) {
-        this.ipAddressInterceptor = ipAddressInterceptor;
-    }
 
     @GetMapping("/two")
     public String secureOne(HttpServletRequest request){
