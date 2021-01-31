@@ -9,9 +9,9 @@ import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 
 public class UserDTO extends BasicEntityDTO {
+
     @JsonProperty("id")
     private Long id;
-
     @NotEmpty
     @JsonProperty("name")
     private String name;

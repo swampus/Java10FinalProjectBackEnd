@@ -25,6 +25,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -61,7 +62,7 @@ public class UserControllerIntegrationTest {
         userDTO.setCreateDate(new Date());
         userDTO.setNotes("asdasdasdsad");
 
-        mvc.perform(post("/rest/api/User.svc/user")
+        mvc.perform(put("/rest/api/User.svc/user")
                 .contentType(MediaType.APPLICATION_JSON).content(new ObjectMapper().writeValueAsString(userDTO)))
                 .andExpect(status().isOk());
 

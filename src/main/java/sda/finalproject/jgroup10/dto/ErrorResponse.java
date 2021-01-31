@@ -9,11 +9,13 @@ public class ErrorResponse {
         this.message = message;
         this.code = code;
         this.operation = operation;
+        this.error = "ERROR";
     }
 
     private String message;
     private String code;
     private String operation;
+    private String error;
 
     public String getMessage() {
         return message;
@@ -38,4 +40,13 @@ public class ErrorResponse {
     public void setOperation(String operation) {
         this.operation = operation;
     }
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
 }
+

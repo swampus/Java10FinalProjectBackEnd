@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 
 @RestController
 // Convection of sorts.
+@CrossOrigin(origins = "http://localhost:8000")
 @RequestMapping("/rest/api/User.svc")
 public class UserController {
     private final UserService userService;
@@ -36,6 +37,13 @@ public class UserController {
         User savedUser = userService.save(userToSave);
         return userMapper.toDTO(savedUser);
     }
+
+    @DeleteMapping("/user({id})")
+    @CrossOrigin(origins = "http://localhost:8000")
+    public void deleteUser(@PathVariable("id") Long id) {
+        userService.delete(id);
+    }
+
 
     @GetMapping("/users")
     public List<UserDTO> getAllUser() {

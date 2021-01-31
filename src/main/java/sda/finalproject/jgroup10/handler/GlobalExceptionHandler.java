@@ -27,6 +27,7 @@ public class GlobalExceptionHandler {
                 .collect(Collectors.toList());
         errorResponse.setMessage(StringUtils.join(errorDsc, ", "));
         errorResponse.setOperation(request.getContextPath());
+        errorResponse.setError("ERROR");
         return errorResponse;
     }
 
