@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 @RestController
 // Convection of sorts.
-@CrossOrigin(origins = "http://localhost:8000")
+@CrossOrigin
 @RequestMapping("/rest/api/User.svc")
 public class UserController {
     private final UserService userService;
