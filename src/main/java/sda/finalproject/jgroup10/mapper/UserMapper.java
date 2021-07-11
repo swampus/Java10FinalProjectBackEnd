@@ -4,10 +4,14 @@ package sda.finalproject.jgroup10.mapper;
 import org.springframework.stereotype.Component;
 import sda.finalproject.jgroup10.dto.UserDTO;
 import sda.finalproject.jgroup10.model.User;
+import sda.finalproject.jgroup10.model.status.EntityStatus;
 
 @Component
 public class UserMapper {
     public UserDTO toDTO(User user) {
+        if(user.getStatus() == null){
+            user.setStatus(EntityStatus.DELETED);
+        }
         return new UserDTO(
                 user.getId(),
                 user.getName(),
